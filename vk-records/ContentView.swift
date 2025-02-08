@@ -31,15 +31,7 @@ struct ContentView: View {
                             }
                         }
                         .frame(maxWidth: .infinity)
-                        Button(action: {
-                        }) {
-                            VStack {
-                                Image(systemName: "person.crop.circle")
-                                Text("Profile")
-                                    .font(.caption)
-                            }
-                        }
-                        .frame(maxWidth: .infinity)
+                        .foregroundColor(Color(red: 0.2, green: 0.9, blue: 1.0))
                         Button(action: {
                         }) {
                             VStack {
@@ -49,6 +41,17 @@ struct ContentView: View {
                             }
                         }
                         .frame(maxWidth: .infinity)
+                        .foregroundColor(.white)
+                        Button(action: {
+                        }) {
+                            VStack {
+                                Image(systemName: "person.crop.circle")
+                                Text("Profile")
+                                    .font(.caption)
+                            }
+                        }
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(.white)
                     }
                     .padding(.top, 0)
                 }
