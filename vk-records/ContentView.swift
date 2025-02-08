@@ -17,9 +17,13 @@ struct ContentView: View {
             List {
                 ForEach(items) { item in
                     NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
+                        Text("Item Navigation")
                     } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                        CardView(
+                            title: "Item \(item.id)",
+                            content: "TESTTT",
+                            image: "https://image"
+                        )
                     }
                 }
                 .onDelete(perform: deleteItems)
@@ -46,7 +50,7 @@ struct ContentView: View {
 
     private func addItem() {
         withAnimation {
-            let newItem = Item(timestamp: Date())
+            let newItem = Item(title: "New Item", content: "Sample Content", image: "https://sample-image.com")
             modelContext.insert(newItem)
         }
     }
@@ -63,4 +67,17 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .modelContainer(for: Item.self, inMemory: true)
+        .onAppear {
+            let context = try? ModelContext(inMemory: true)
+            for i in 1...5 {
+                let mockItem = Item(
+                    title: "Mock Item \(i)",
+                    content: "This is the content of mock item \(i).",
+                    image: "placeholder-image"
+                )
+                context?.insert(mockItem)
+            }
+        }
+}
+
 }

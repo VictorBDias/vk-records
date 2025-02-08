@@ -9,10 +9,15 @@ import Foundation
 import SwiftData
 
 @Model
-final class Item {
-    var timestamp: Date
-    
-    init(timestamp: Date) {
-        self.timestamp = timestamp
+final class Item: Identifiable {
+    @Attribute(.unique) var id: UUID = UUID()
+    var title: String
+    var content: String
+    var image: String
+
+    init(title: String, content: String, image: String) {
+        self.title = title
+        self.content = content
+        self.image = image
     }
 }
