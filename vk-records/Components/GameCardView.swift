@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CardView: View {
+struct GameCardView: View {
     let id: Int
     let name: String
     let playtime: Int
