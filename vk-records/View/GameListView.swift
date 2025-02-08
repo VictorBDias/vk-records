@@ -7,7 +7,7 @@ struct GameListView: View {
 
     var body: some View {
         NavigationView {
-            List(viewModel.games) { game in
+            List(viewModel.games.sorted { $0.playtime > $1.playtime }) { game in
                 GameCardView(
                     id: game.id,
                     name: game.name,
