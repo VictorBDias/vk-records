@@ -9,17 +9,12 @@ struct GameListView: View {
         NavigationView {
             List(viewModel.games) { game in
                 GameCardView(
-<<<<<<< Updated upstream
                     id: game.id,
                     name: game.name,
                     playtime: game.playtime,
                     imgIconURL: "https://media.steampowered.com/steamcommunity/public/images/apps/\(game.id)/\(game.imgIconURL).jpg",
                     hasCommunityStats: game.hasCommunityStats,
                     contentDescriptorIDs: game.contentDescriptorIDs
-=======
-                    title: "Test",
-                    content: "test"
->>>>>>> Stashed changes
                 )
                 .listRowSeparator(.hidden)
             }
