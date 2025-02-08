@@ -9,7 +9,7 @@ import Foundation
 
 struct SteamAPI {
     static let apiKey = "7B9584B406717E6709179D0C739F803A"
-    static let baseURL = "http://api.steampowered.com/"
+    static let baseURL = "https://api.steampowered.com/"
 
     static func fetchGames(for userID: String, completion: @escaping (Result<[Game], Error>) -> Void) {
         let urlString = "\(baseURL)/IPlayerService/GetOwnedGames/v1/?key=\(apiKey)&steamid=\(userID)&format=json"
