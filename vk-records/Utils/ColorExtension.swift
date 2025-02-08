@@ -3,7 +3,7 @@ import SwiftUI
 extension Color {
     static let background = Color(hex: "274156")
     static let card = Color(hex: "1F3344")
-    static let text = Color(hex: "AABBCC")
+    static let text = Color(hex: "FFFFFF")
 
     // Helper initializer to create a Color from a HEX code
     init(hex: String) {
