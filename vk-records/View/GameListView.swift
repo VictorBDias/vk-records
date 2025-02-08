@@ -1,8 +1,9 @@
 import SwiftUI
 
+
 struct GameListView: View {
     @StateObject private var viewModel = GameListViewModel()
-    let userID = "76561198089755360"
+    let userID = "76561198300021798"
 
     var body: some View {
         NavigationView {
@@ -11,7 +12,7 @@ struct GameListView: View {
                     id: game.id,
                     name: game.name,
                     playtime: game.playtime,
-                    imgIconURL: game.imgIconURL,
+                    imgIconURL: "https://media.steampowered.com/steamcommunity/public/images/apps/\(game.id)/\(game.imgIconURL).jpg",
                     hasCommunityStats: game.hasCommunityStats,
                     contentDescriptorIDs: game.contentDescriptorIDs
                 )
