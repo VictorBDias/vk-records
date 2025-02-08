@@ -17,9 +17,11 @@ struct GameListView: View {
                     contentDescriptorIDs: game.contentDescriptorIDs
                 )
                 .listRowSeparator(.hidden)
+                .listRowInsets(EdgeInsets())
+                .padding(.bottom, 8)
             }
             .navigationTitle("Steam Games")
-            .listStyle(PlainListStyle())
+            .listStyle(.plain)
             .onAppear {
                 viewModel.fetchGames(for: userID)
             }

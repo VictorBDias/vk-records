@@ -9,44 +9,62 @@ struct GameCardView: View {
     let contentDescriptorIDs: [Int]?
 
     var body: some View {
-        VStack(alignment: .leading) {
+        HStack(spacing: 12) {
             // Game Image
             AsyncImage(url: URL(string: imgIconURL)) { image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(height: 150)
+                    .frame(width: 72, height: 72) // Larger size to match the style
                     .clipped()
             } placeholder: {
                 Color.gray.opacity(0.3)
-                    .frame(height: 150)
+                    .frame(width: 64, height: 64)
             }
 
-            // Game Info
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 4) {
+                // Game Name
                 Text(name)
                     .font(.headline)
-                    .lineLimit(2)
+                    .foregroundColor(.white)
+                    .lineLimit(1)
+
+                // Playtime
                 Text("Playtime: \(playtime) minutes")
                     .font(.subheadline)
-                    .foregroundColor(.secondary)
+                    .foregroundColor(.white)
 
+                // Community Stats
                 if let hasCommunityStats = hasCommunityStats {
-                    Text("Community Stats: \(hasCommunityStats ? "Available" : "Not Available")")
+                    Text("\(hasCommunityStats ? "Available" : "Not Available")")
                         .font(.caption)
-                        .foregroundColor(hasCommunityStats ? .green : .red)
+                        .foregroundColor(.gray)
                 }
 
+                // Content Descriptors
                 if let contentDescriptorIDs = contentDescriptorIDs, !contentDescriptorIDs.isEmpty {
                     Text("Descriptors: \(contentDescriptorIDs.map { String($0) }.joined(separator: ", "))")
                         .font(.caption)
                         .foregroundColor(.blue)
                 }
-            }
-            .padding()
+            }.padding(8)
+            Spacer() // Push everything to the left
         }
-        .background(Color.white)
-        .cornerRadius(10)
-        .shadow(radius: 5)
+        .background(Color(hex: "1F3344"))
+    }
+}
+
+
+extension Color {
+    init(hex: String) {
+        let scanner = Scanner(string: hex)
+        var hexNumber: UInt64 = 0
+        scanner.scanHexInt64(&hexNumber)
+        
+        let r = Double((hexNumber & 0xFF0000) >> 16) / 255.0
+        let g = Double((hexNumber & 0x00FF00) >> 8) / 255.0
+        let b = Double(hexNumber & 0x0000FF) / 255.0
+        
+        self.init(.sRGB, red: r, green: g, blue: b, opacity: 1)
     }
 }
