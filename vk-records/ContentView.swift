@@ -21,8 +21,7 @@ struct ContentView: View {
                     } label: {
                         CardView(
                             title: "Item \(item.id)",
-                            content: "TESTTT",
-                            image: "https://image"
+                            content: "TESTTT"
                         )
                     }
                 }
@@ -67,17 +66,5 @@ struct ContentView: View {
 #Preview {
     ContentView()
         .modelContainer(for: Item.self, inMemory: true)
-        .onAppear {
-            let context = try? ModelContext(inMemory: true)
-            for i in 1...5 {
-                let mockItem = Item(
-                    title: "Mock Item \(i)",
-                    content: "This is the content of mock item \(i).",
-                    image: "placeholder-image"
-                )
-                context?.insert(mockItem)
-            }
-        }
 }
 
-}

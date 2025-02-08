@@ -1,10 +1,3 @@
-//
-//  GameListView.swift
-//  vk-records
-//
-//  Created by Victor Batisttete Dias on 08/02/25.
-//
-
 import SwiftUI
 
 struct GameListView: View {
@@ -14,12 +7,10 @@ struct GameListView: View {
     var body: some View {
         NavigationView {
             List(viewModel.games) { game in
-                VStack(alignment: .leading) {
-                    Text(String(game.id))
-                        .font(.headline)
-                    Text("Playtime: \(game.playtime) mins")
-                        .font(.subheadline)
-                }
+                CardView(
+                    title: "Test",
+                    content: "test"
+                )
             }
             .navigationTitle("Steam Games")
             .onAppear {
