@@ -25,7 +25,7 @@ struct vk_recordsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().background(Color.background.ignoresSafeArea())
         }
         .modelContainer(sharedModelContainer)
     }

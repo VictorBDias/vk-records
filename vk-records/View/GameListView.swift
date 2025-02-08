@@ -19,9 +19,11 @@ struct GameListView: View {
                 .listRowSeparator(.hidden)
                 .listRowInsets(EdgeInsets())
                 .padding(.bottom, 8)
+                .background(Color.background)
             }
             .navigationTitle("Steam Games")
             .listStyle(.plain)
+            .background(Color.background)
             .onAppear {
                 viewModel.fetchGames(for: userID)
             }
@@ -34,3 +36,4 @@ struct GameListView_Previews: PreviewProvider {
         GameListView()
     }
 }
+

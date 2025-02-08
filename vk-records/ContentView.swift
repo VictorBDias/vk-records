@@ -11,6 +11,8 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack {
+                Color.background
+                .edgesIgnoringSafeArea(.all)
                 VStack {
                     GameListView()
                         .padding(.bottom, 46)
