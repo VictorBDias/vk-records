@@ -9,9 +9,9 @@ Enter the user Steam ID on the input box, then submit. You can find the ID on us
 
 # User game list
 <kbd>
-  <img src="vk-records/vk-records/Assets/Simulator_Screenshot.png">
+  <img src="vk-records/Assets/Simulator_Screenshot.png">
 </kbd>
 
 <kbd>
-  <img src="vk-records/vk-records/Assets/Simulator_Screenshot2.png">
+  <img src="vk-records/Assets/Simulator_Screenshot2.png">
 </kbd>
